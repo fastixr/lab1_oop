@@ -10,7 +10,7 @@ int main() {
     if (!(std::cin >> s)) {
         return 0;
     }
-    std::cout << swapAandB(s);
+    std::cout << swapAandB(s) << '\n';
     return 0;
 }
 

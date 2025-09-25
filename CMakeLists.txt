@@ -2,12 +2,10 @@ cmake_minimum_required(VERSION 3.16)
 
 project(lab1_swap_ab LANGUAGES CXX)
 
-# Требуемый стандарт C++
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Проверка версии компилятора (желательно GCC 14)
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 14)
     message(WARNING "Требуется GCC >= 14. Обнаружен GCC ${CMAKE_CXX_COMPILER_VERSION}.")
@@ -57,11 +55,7 @@ endif()
 add_executable(unit_tests
   tests/swap_ab_test.cpp
 )
-if (_have_gtest)
-  target_link_libraries(unit_tests PRIVATE core_swap_ab GTest::gtest GTest::gtest_main)
-else()
-  target_link_libraries(unit_tests PRIVATE core_swap_ab GTest::gtest GTest::gtest_main)
-endif()
+target_link_libraries(unit_tests PRIVATE core_swap_ab GTest::gtest GTest::gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(unit_tests)

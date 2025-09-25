@@ -3,8 +3,8 @@
 
 #include <string>
 
-std::string swapAandB(const std::string &input);
+[[nodiscard]] std::string swapAandB(const std::string &input);
 
-#endif // SWAP_AB_HPP
+#endif
 
 
